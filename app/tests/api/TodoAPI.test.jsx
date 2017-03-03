@@ -9,7 +9,7 @@ describe('TodoAPI', () => {
 
   it('should exist', () => {
     expect(TodoAPI).toExist();
-  });  
+  });
 
   describe('filterTodos', () => {
     var todos = [{
@@ -43,6 +43,11 @@ describe('TodoAPI', () => {
 
     it('should filter todos by searchText', () => {
       var filteredTodos = TodoAPI.filterTodos(todos, true, 'some');
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    it('should filter todos by searchText if upper case', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, 'SOME');
       expect(filteredTodos.length).toBe(2);
     });
 
